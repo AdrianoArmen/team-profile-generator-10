@@ -9,3 +9,4 @@ const Intern = require("./lib/Intern");
 
 // team array declared to get the team objects
 const teamArray = [];
+

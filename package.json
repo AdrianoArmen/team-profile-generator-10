@@ -1,0 +1,29 @@
+{
+    "name": "team-profile-generator-10",
+    "version": "1.0.0",
+    "description": "Node.js command line application designed to generate a team website after we enter data on the terminal",
+    "main": "index.js",
+    "directories": {
+      "lib": "lib",
+      "test": "test"
+    },
+    "scripts": {
+      "test": "jest --verbose test/*"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/AdrianoArmen/team-profile-generator-10.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/AdrianoArmen/team-profile-generator-10/issues"
+    },
+    "homepage": "https://github.com/AdrianoArmen/team-profile-generator-10#readme",
+    "dependencies": {
+      "inquirer": "^8.0.0"
+    },
+    "devDependencies": {
+      "jest": "^26.6.3"
+    }
+  }
