@@ -177,30 +177,74 @@ function generatorDisplay() {
       });
   }
 
-  // build Inter by promped questionnaire
+  // build Intern by promped questionnaire
   function buildIntern() {
-    inquirer.prompt([
-      {
-        type: "input",
-        name: "internName",
-        message: "Intern's name:",
-      },
-      {
-        type: "input",
-        name: "internId",
-        message: "Intern's id:",
-      },
-      {
-        type: "input",
-        name: "internEmail",
-        message: "Intern's email:",
-      },
-      {
-        type: "input",
-        name: "internSchool",
-        message: "Intern's school:",
-      },
-    ]);
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "internName",
+          message: "Intern's name:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Intern's name is required!";
+          },
+        },
+        {
+          type: "input",
+          name: "internId",
+          message: "Intern's id:",
+          validate: (answer) => {
+            const pass = answer.match(/^[1-9]\d*$/);
+            if (pass) {
+              //   validate for unique ID number
+              if (idArray.includes(answer)) {
+                return "ID previously taken - Enter a new ID number";
+              } else {
+                return true;
+              }
+            }
+            return "Intern's ID must be a positive interger!";
+          },
+        },
+        {
+          type: "input",
+          name: "internEmail",
+          message: "Intern's email:",
+          validate: (answer) => {
+            const pass = answer.match(/\S+@\S+\.\S+/);
+            if (pass) {
+              return true;
+            }
+            return "Enter a valid email address!";
+          },
+        },
+        {
+          type: "input",
+          name: "internSchool",
+          message: "Intern's school:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Intern's school is required!";
+          },
+        },
+        //   promise return to push new intern into team array with input answers
+      ])
+      .then((answers) => {
+        const intern = new Intern(
+          answers.internName,
+          answers.internId,
+          answers.internEmail,
+          answers.internSchool
+        );
+        teamArray.push(intern);
+        idArray.push(answers.internId);
+        buildMember();
+      });
   }
 
   function teamBuilder() {}
