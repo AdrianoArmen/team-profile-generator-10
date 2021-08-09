@@ -1,11 +1,19 @@
 // packages required for app development
 const inquirer = require("inquirer");
 const fs = require("fs");
+const path = require("path");
 
 // import classes from lib directory
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+
+// output directory path for generated html file
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "index.html");
+
+// render html structure from teplate
+const render = require("./src/html-template.js");
 
 // team array declared to get the team objects
 const teamArray = [];
@@ -247,7 +255,14 @@ function generatorDisplay() {
       });
   }
 
-  function teamBuilder() {}
+  //   file system to generate file to output directory
+  function teamBuilder() {
+    // output path created if not existent
+    if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR);
+    }
+    fs.writeFileSync(outputPath, render(teamArray), "utf-8");
+  }
 
   buildManager();
 }
