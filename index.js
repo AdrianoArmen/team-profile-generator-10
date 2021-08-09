@@ -17,55 +17,68 @@ function generatorDisplay() {
   // build Manager by prompted questionnaire
   function buildManager() {
     console.log("Manage your team");
-    inquirer.prompt([
-      {
-        type: "input",
-        name: "managerName",
-        message: "Manager's name:",
-        validate: (answer) => {
-          if (answer !== "") {
-            return true;
-          }
-          return "Manager's name is required!";
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "managerName",
+          message: "Manager's name:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Manager's name is required!";
+          },
         },
-      },
-      {
-        type: "input",
-        name: "managerId",
-        message: "Manager's ID:",
-        validate: (answer) => {
-          const pass = answer.match(/^[1-9]\d*$/);
-          if (pass) {
-            return true;
-          }
-          return "Manager's ID must be a positive interger!";
+        {
+          type: "input",
+          name: "managerId",
+          message: "Manager's ID:",
+          validate: (answer) => {
+            const pass = answer.match(/^[1-9]\d*$/);
+            if (pass) {
+              return true;
+            }
+            return "Manager's ID must be a positive interger!";
+          },
         },
-      },
-      {
-        type: "input",
-        name: "managerEmail",
-        message: "Manager's email:",
-        validate: (answer) => {
-          const pass = answer.match(/\S+@\S+\.\S+/);
-          if (pass) {
-            return true;
-          }
-          return "Enter a valid email address!";
+        {
+          type: "input",
+          name: "managerEmail",
+          message: "Manager's email:",
+          validate: (answer) => {
+            const pass = answer.match(/\S+@\S+\.\S+/);
+            if (pass) {
+              return true;
+            }
+            return "Enter a valid email address!";
+          },
         },
-      },
-      {
-        type: "input",
-        name: "managerOfficeNumber",
-        message: "Manager's office number?",
-        validate: (answer) => {
-          const pass = answer.match(/^[1-9]\d*$/);
-          if (pass) {
-            return true;
-          }
-          return "Manager's office number musrt be a positive interger!";
+        {
+          type: "input",
+          name: "managerOfficeNumber",
+          message: "Manager's office number?",
+          validate: (answer) => {
+            const pass = answer.match(/^[1-9]\d*$/);
+            if (pass) {
+              return true;
+            }
+            return "Manager's office number musrt be a positive interger!";
+          },
         },
-      },
-    ]);
+        // promise return to use entered data into constructor
+      ])
+      .then((answers) => {
+        const manager = new Manager(
+          answers.managerName,
+          answers.managerId,
+          answers.managerEmail,
+          answers.managerOfficeNumber
+        );
+        teamArray.push(manager);
+        idArray.push(answers.managerId);
+        buildMember();
+      });
   }
 
   // build new Member by list prompt
