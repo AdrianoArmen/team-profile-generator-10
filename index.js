@@ -19,22 +19,55 @@ function generatorDisplay() {
       {
         type: "input",
         name: "managerName",
-        message: "What is the team manager's name?",
+        message: "Manager's name:",
+        validate: answer => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Manager's name is required!";
+          }
       },
       {
         type: "input",
         name: "managerId",
-        message: "What is the team manager's id?",
+        message: "Manager's ID:",
+        validate: answer => {
+            const pass = answer.match(
+              /^[1-9]\d*$/
+            );
+            if (pass) {
+              return true;
+            }
+            return "Manager's ID must be a positive interger!";
+          }
       },
       {
         type: "input",
         name: "managerEmail",
-        message: "What is the team manager's email?",
+        message: "Manager's email:",
+        validate: answer => {
+            const pass = answer.match(
+              /\S+@\S+\.\S+/
+            );
+            if (pass) {
+              return true;
+            }
+            return "Enter a valid email address!";
+          }
       },
       {
         type: "input",
         name: "managerOfficeNumber",
-        message: "What is the team manager's office number?",
+        message: "Manager's office number?",
+        validate: answer => {
+            const pass = answer.match(
+              /^[1-9]\d*$/
+            );
+            if (pass) {
+              return true;
+            }
+            return "Manager's office number musrt be a positive interger!";
+          }
       },
     ]);
   }
