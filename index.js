@@ -92,7 +92,7 @@ function generatorDisplay() {
           choices: ["Engineer", "Intern", "My team is complete!"],
         },
       ])
-      //   switch cases to generate new member
+      //   switch cases to generate new member with promise return
       .then((selectedMember) => {
         switch (selectedMember.memberProfile) {
           case "Engineer":
@@ -109,28 +109,72 @@ function generatorDisplay() {
 
   // build Engineer by prompted questionnaire
   function buildEngineer() {
-    inquirer.prompt([
-      {
-        type: "input",
-        name: "engineerName",
-        message: "Engineer's name:",
-      },
-      {
-        type: "input",
-        name: "engineerId",
-        message: "Engineer's id:",
-      },
-      {
-        type: "input",
-        name: "engineerEmail",
-        message: "Engineer's email:",
-      },
-      {
-        type: "input",
-        name: "engineerGithub",
-        message: "Engineer's GitHub username:",
-      },
-    ]);
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "engineerName",
+          message: "Engineer's name:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Engineer's name is required!";
+          },
+        },
+        {
+          type: "input",
+          name: "engineerId",
+          message: "Engineer's id:",
+          validate: (answer) => {
+            const pass = answer.match(/^[1-9]\d*$/);
+            if (pass) {
+              //   check if ID number is already on array
+              if (idArray.includes(answer)) {
+                return "ID previously taken - Enter a new ID number";
+              } else {
+                return true;
+              }
+            }
+            return "Engineer's ID must be a positive interger!";
+          },
+        },
+        {
+          type: "input",
+          name: "engineerEmail",
+          message: "Engineer's email:",
+          validate: (answer) => {
+            const pass = answer.match(/\S+@\S+\.\S+/);
+            if (pass) {
+              return true;
+            }
+            return "Enter a valid email address!";
+          },
+        },
+        {
+          type: "input",
+          name: "engineerGithub",
+          message: "Engineer's GitHub username:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Engineer's GitHub username is required!";
+          },
+        },
+        // promise return to push new engineer into team array with answers
+      ])
+      .then((answers) => {
+        const engineer = new Engineer(
+          answers.engineerName,
+          answers.engineerId,
+          answers.engineerEmail,
+          answers.engineerGithub
+        );
+        teamArray.push(engineer);
+        idArray.push(answers.engineerId);
+        buildMember();
+      });
   }
 
   // build Inter by promped questionnaire
