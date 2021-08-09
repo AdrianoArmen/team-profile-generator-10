@@ -83,14 +83,28 @@ function generatorDisplay() {
 
   // build new Member by list prompt
   function buildMember() {
-    inquirer.prompt([
-      {
-        type: "list",
-        name: "memberChoice",
-        message: "Select new team member profile:",
-        choices: ["Engineer", "Intern", "My team is complete!"],
-      },
-    ]);
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "memberProfile",
+          message: "Select new team member profile:",
+          choices: ["Engineer", "Intern", "My team is complete!"],
+        },
+      ])
+      //   switch cases to generate new member
+      .then((selectedMember) => {
+        switch (selectedMember.memberProfile) {
+          case "Engineer":
+            buildEngineer();
+            break;
+          case "Intern":
+            buildIntern();
+            break;
+          default:
+            teamBuilder();
+        }
+      });
   }
 
   // build Engineer by prompted questionnaire
@@ -144,6 +158,8 @@ function generatorDisplay() {
       },
     ]);
   }
+
+  function teamBuilder() {}
 
   buildManager();
 }
