@@ -87,3 +87,19 @@ function buildIntern() {
     },
   ]);
 }
+
+// build new Member by list prompt
+function buildMember() {
+  inquirer.prompt([
+    {
+      type: "list",
+      name: "memberChoice",
+      message: "Which type of team member would you like to add?",
+      choices: [
+        "Engineer",
+        "Intern",
+        "My team is complete!",
+      ],
+    },
+  ]);
+}
