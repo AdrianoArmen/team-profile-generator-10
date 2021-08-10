@@ -3,7 +3,7 @@ const teamGenerator = (team) => {
   // card html structure for manager
   const managerGenerator = (manager) => {
     return `
-        <div class="card">
+        <div class="card dark-card">
         <div class="card-header">
             <h2 class="card-title">${manager.getName()}</h2>
             <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
@@ -22,7 +22,7 @@ const teamGenerator = (team) => {
   // card html structure for engineer
   const engineerGenerator = (engineer) => {
     return `
-        <div class="card">
+        <div class="card dark-card">
     <div class="card-header">
         <h2 class="card-title">${engineer.getName()}</h2>
         <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
@@ -41,7 +41,7 @@ const teamGenerator = (team) => {
   // card html structure for intern
   const internGenerator = (intern) => {
     return `
-        <div class="card">
+        <div class="card dark-card">
     <div class="card-header">
         <h2 class="card-title">${intern.getName()}</h2>
         <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
@@ -92,6 +92,9 @@ module.exports = (team) => {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Team</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
@@ -99,14 +102,14 @@ module.exports = (team) => {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 jumbotron mb-3">
+            <div class="col-12 jumbotron mb-3 team-title">
                 <h1 class="text-center">My Team</h1>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center team-content">
                 ${teamGenerator(team)}
             </div>
         </div>

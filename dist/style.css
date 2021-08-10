@@ -1,27 +1,21 @@
 * {
   font-family: "Source Code Pro", monospace;
 }
-
-body {
-    background-color: #2B2B2B;
-}
 .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: azure;
-  background-color: #171010;
+  background-color: #f6f7f8;
 }
 
 .list-group-item {
-  color: azure;
+  color: #000000;
   text-decoration: none;
-  background-color: black;
 }
 
 .team-title {
-  background-color: #171010;
-  color: azure;
+  background-color: #e84855;
+  color: #ffffff;
 }
 
 .team-content {
@@ -35,8 +29,8 @@ body {
   max-width: 280px;
   width: 90%;
   min-height: 22rem;
-  background-color: black;
-  color: azure;
+  background-color: #007bff;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
