@@ -12,7 +12,7 @@ test("Name defined with constructor arguments", () => {
 });
 
 test("ID defined with constructor argument", () => {
-  const testValue = 100;
+  const testValue = 10;
   const e = new Employee("Adriano", testValue);
   expect(e.id).toBe(testValue);
 });
