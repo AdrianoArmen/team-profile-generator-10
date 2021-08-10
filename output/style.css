@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #2B2B2B;
+  background-color: #2b2b2b;
 }
 .card-body {
   display: flex;
@@ -40,6 +40,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+  box-shadow: 4px 4px 8px rgba(88, 83, 83, 0.7);
   border: none;
+}
+
+a[href^="mailto:"] {
+  color: red;
+}
+a[href^="https://github.com/"]
+{
+  color: red;
 }
