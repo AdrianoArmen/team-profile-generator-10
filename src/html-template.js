@@ -1,9 +1,8 @@
 // new team to be generated on html file
 const teamGenerator = (team) => {
-
-    // card html structure for manager
-    const managerGenerator = manager => {
-        return `
+  // card html structure for manager
+  const managerGenerator = (manager) => {
+    return `
         <div class="card">
         <div class="card-header">
             <h2 class="card-title">${manager.getName()}</h2>
@@ -18,11 +17,11 @@ const teamGenerator = (team) => {
         </div>
     </div>
         `;
-    };
+  };
 
-      // card html structure for engineer
-      const engineerGenerator = engineer => {
-        return `
+  // card html structure for engineer
+  const engineerGenerator = (engineer) => {
+    return `
         <div class="card">
     <div class="card-header">
         <h2 class="card-title">${engineer.getName()}</h2>
@@ -37,26 +36,52 @@ const teamGenerator = (team) => {
     </div>
 </div>
         `;
-    };
+  };
 
- 
-    const html = [];
+  // card html structure for intern
+  const internGenerator = (intern) => {
+    return `
+        <div class="card">
+    <div class="card-header">
+        <h2 class="card-title">${intern.getName()}</h2>
+        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${intern.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+            <li class="list-group-item">School: ${intern.getSchool()}</li>
+        </ul>
+    </div>
+</div>
+        `;
+  };
 
-    html.push(team
-        .filter(employee => employee.getRole() === "Manager")
-        .map(manager => managerGenerator(manager))
-    );
-    html.push(team
-        .filter(employee => employee.getRole() === "Engineer")
-        .map(engineer => engineerGenerator(engineer))
-        .join("")
-    );
-   
+  const html = [];
 
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Manager")
+      .map((manager) => managerGenerator(manager))
+  );
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Engineer")
+      .map((engineer) => engineerGenerator(engineer))
+      .join("")
+  );
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Intern")
+      .map((intern) => internGenerator(intern))
+      .join("")
+  );
+
+  return html.join("");
 };
 
 module.exports = (team) => {
-    // html basic structure - bootstrap and fontawesome imported
+  // html basic structure - bootstrap and fontawesome imported
   return `
     <!DOCTYPE html>
 <html lang="en">
@@ -74,14 +99,14 @@ module.exports = (team) => {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading">
+            <div class="col-12 jumbotron mb-3">
                 <h1 class="text-center">My Team</h1>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
                 ${teamGenerator(team)}
             </div>
         </div>
