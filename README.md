@@ -16,6 +16,8 @@ Homework 10 - Team Profile Generator
 
 This command-line application powered by [Node.js](https://nodejs.org/es/) was built to showcase my understanding of Object-Oriented Programming and my experience with previously studied technologies like [NPM](https://www.npmjs.com/), the [File System module](https://nodejs.org/api/fs.html), and the [Inquirer package](https://www.npmjs.com/package/inquirer). This application will allow you to generate an HTML file with all your development team information. A series of questions will be prompted on the command line to fit your needs. A series of tests were built using [Jest](https://jestjs.io/docs/getting-started) to make sure the results given are expected. Finally, you will have a custom HTML file with custom style to display your team on a web browser.
 
+**_Note_**: After running my app the **index.html** file generated on the example will be located on the output directory for example purposes. If you run the app with different team data that file will be overwritten. 
+
 
 ## Command-line App Functionality 🔧
 
