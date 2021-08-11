@@ -1,178 +1,69 @@
 # team-profile-generator-10
 
----
 
-# 10 Object-Oriented Programming: Team Profile Generator
+Homework 10 - Team Profile Generator
 
-## Your Task
 
-Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
+## GitHub Repository 🚀
 
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. You’ll need to submit a link to the video AND add it to the readme of your project.
+- [GitHub Repo Link](https://github.com/AdrianoArmen/team-profile-generator-10)
 
-> **Note**: There is no starter code for this assignment.
+## Walkthrough Video 📺
 
-## User Story
+- [Video Link](https://www.loom.com/share/03af87a8811f43a5b04072d99d5c08fb)
 
-```md
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
-```
+## Project Description 📋
 
-## Acceptance Criteria
+This command-line application powered by [Node.js](https://nodejs.org/es/) was built to showcase my understanding of Object-Oriented Programming and my experience with previously studied technologies like [NPM](https://www.npmjs.com/), the [File System module](https://nodejs.org/api/fs.html), and the [Inquirer package](https://www.npmjs.com/package/inquirer). This application will allow you to generate an HTML file with all your development team information. A series of questions will be prompted on the command line to fit your needs. A series of tests were built using [Jest](https://jestjs.io/docs/getting-started) to make sure the results given are expected. Finally, you will have a custom HTML file with custom style to display your team on a web browser.
 
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
-```
 
-## Mock-Up
+## Command-line App Functionality 🔧
 
-The following image shows a mock-up of the generated HTML’s appearance and functionality:
+- This example demonstrate the questions promped on the command line to build your team:
 
-![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./Assets/10-object-oriented-programming-homework-demo.png)
 
-The styling in the image is just an example, so feel free to add your own.
+![Command line application functionality displaying questions about a develpment team](./assets/appfunctionality.gif)
 
-## Getting Started
 
-This homework will combine many of the skills we've covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help get started.
+## Example Result 📦
 
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. The application will be invoked by using the following command:
+- This ecample displays the generated HTML file on a live server with a custom team information:
+
+![HTML webpage titled “My Team” features a Rick and Morty themed team example](./assets/profile-generator.png)
+
+
+## Run the App and Tests 💾
+
+-  The application will be invoked by using the following command:
 
 ```bash
 node index.js
 ```
 
-It is recommended that you start with a directory structure that looks like the following example:
+-  The tests will run by using the following command:
 
-```md
-__tests__/			// jest tests
-  Employee.test.js
-  Engineer.test.js
-  Intern.test.js
-  Manager.test.js
-dist/               // rendered output (HTML) and CSS style sheet
-lib/				// classes
-src/				// template helper code
-index.js			// runs the application
+```bash
+npm test
 ```
 
-The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `_tests_` directory) must ALL pass.
-
-The first class is an `Employee` parent class with the following properties and methods:
-
-* `name`
-
-* `id`
-
-* `email`
-
-* `getName()`
-
-* `getId()`
-
-* `getEmail()`
-
-* `getRole()`&mdash;returns `'Employee'`
-
-The other three classes will extend `Employee`.
-
-In addition to `Employee`'s properties and methods, `Manager` will also have the following:
-
-* `officeNumber`
-
-* `getRole()`&mdash;overridden to return `'Manager'`
-
-In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
-
-* `github`&mdash;GitHub username
-
-* `getGithub()`
-
-* `getRole()`&mdash;overridden to return `'Engineer'`
-
-In addition to `Employee`'s properties and methods, `Intern` will also have the following:
-
-* `school`
-
-* `getSchool()`
-
-* `getRole()`&mdash;overridden to return `'Intern'`
-
-Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Deliverables: 15%
-
-* A sample HTML file generated using the application must be submitted.
-
-* Your GitHub repository containing your application code.
+- This example demonstrate the Jest tests run and passed on my console:
 
 
-### Walkthrough Video: 32%
+![Command line tests run and passed on consolee](./assets/apptests.gif)
 
-* A walkthrough video that demonstrates the functionality of the Team Profile Generator and passing tests must be submitted, and a link to the video should be included in your README file.
+## Technologies used 🛠️
 
-* The walkthrough video must show all four tests passing from the command line.
+- [Node.js](https://nodejs.org/es/) - command-line enviroment
+- [Inquirer.js](https://www.npmjs.com/package/inquirer) - inquiry session flow
+- [File System module](https://nodejs.org/api/fs.html) - directory navigation
+- [NPM](https://www.npmjs.com/) - package manager
+- [Jest](https://jestjs.io/docs/getting-started) - javascript testing
 
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
+## License 📄
 
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated HTML file that matches the user input.
-
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-	* Uses the [Inquirer package](https://www.npmjs.com/package/inquirer).
-
-	* Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-  * The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* A sample HTML file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ---
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+© 2021 Adriano.
+
