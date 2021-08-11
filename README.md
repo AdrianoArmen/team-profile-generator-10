@@ -1,4 +1,5 @@
 # team-profile-generator-10
+![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
 
 
 Homework 10 - Team Profile Generator
